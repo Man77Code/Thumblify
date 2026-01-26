@@ -11,7 +11,7 @@ export const registerUser = async (req: Request, res: Response) => {
     //find user by email
     const user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(409).json({ message: "User already exists" });
     }
 
     //Encrypy the password
